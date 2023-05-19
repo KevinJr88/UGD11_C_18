@@ -8,7 +8,7 @@ package ugd11_c_18;
  *
  * @author julia
  */
-public class Teller extends Karyawan {
+public class Teller extends Karyawan implements ITeller {
     private int jumlahUangMasuk;
     private int tunjagan;
     
