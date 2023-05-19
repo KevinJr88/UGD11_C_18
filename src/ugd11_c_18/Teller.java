@@ -9,15 +9,12 @@ package ugd11_c_18;
  * @author julia
  */
 public class Teller extends Karyawan {
-
+    private int jumlahUangMasuk;
+    private int tunjagan;
+    
     @Override
-    public void showTeller() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
-
-    @Override
-    public void showAccountOfficer() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    public void showKaryawan() {
+        
     }
     
 }

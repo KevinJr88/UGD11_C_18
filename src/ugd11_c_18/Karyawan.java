@@ -23,8 +23,5 @@ public abstract class Karyawan {
     
     public abstract void showKaryawan();
     
-    
-    
-    
    
 }
