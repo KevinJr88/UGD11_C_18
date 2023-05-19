@@ -48,7 +48,8 @@ public class UGD11_C_18 {
            System.out.println("Tanggal akhir kontrak : "); tanggalAkhir = br.readLine();
            System.out.println("Jumlah nasabah : "); jmlNasabah = Integer.parseInt(br.readLine());
            System.out.println("Area : "); area = br.readLine();
-           AccountOfficer ao = new AccountOfficer(namaAO, nomorIdentitas, tanggalAwal, tanggalAkhir, jmlNasabah, area);
+           AccountOfficer ao = new AccountOfficer(jmlNasabah, area, namaAO, nomorIdentitas, tanggalAwal, tanggalAkhir);
+           
            b.addKaryawan(ao);
            
            System.out.println("\n\n----------PETUGAS 2 (Data Teller)----------------");
@@ -58,7 +59,8 @@ public class UGD11_C_18 {
            System.out.println("Tanggal akhir kontrak : "); tanggalAkhir2 = br.readLine();
            System.out.println("Jumlah uang masuk : "); jmlUang = Integer.parseInt(br.readLine());
            System.out.println("Tunjangan : "); tunjangan = Integer.parseInt(br.readLine());
-           Teller t = new Teller(namaTeller, nomorIdentitas2, tanggalAwal2, tanggalAkhir2, jmlUang, tunjangan);
+           Teller t = new Teller(jmlUang, tunjangan, namaTeller, nomorIdentitas, tanggalAwal, tanggalAkhir);
+           
            b.addKaryawan(t);
            
            System.out.println("\n\n----------PETUGAS 1 (Data Customer Service)----------------");

@@ -91,12 +91,12 @@ public class CustomerService extends Karyawan implements ICustomerService, IKont
             System.out.println("Anda tidak mendapatkan bonus");
         } else{
             System.out.println("Anda mendapatkan bonus");
-            System.out.println("Bonus : " + (cekDurasi(tanggalAwal, tanggalAkhir)-30*15000));
+            System.out.println("Bonus : " + (cekDurasi(tanggalAwal, tanggalAkhir)-30)*15000);
         }
     }
 
     @Override
-    public double durasiKontrak(String awal, String akhir) {
+    public int durasiKontrak(String awal, String akhir) {
       
         Scanner s = new Scanner(awal);
         String[] insert1 = new String[3];
@@ -137,7 +137,7 @@ public class CustomerService extends Karyawan implements ICustomerService, IKont
         Date secondDate = cal.getTime();
 
 
-        long diff = secondDate.getTime() - firstDate.getTime();
+        int diff = (int) (secondDate.getTime() - firstDate.getTime());
 
         return diff / 1000 / 60 / 60 / 24;
           

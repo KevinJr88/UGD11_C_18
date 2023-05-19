@@ -4,6 +4,10 @@
  */
 package ugd11_c_18;
 
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Scanner;
+
 /**
  *
  * @author julia
@@ -33,16 +37,12 @@ public class AccountOfficer extends Karyawan implements IAccountOfficer, IKontra
         bonusKontrak();
     }
 
-    @Override
-    public double durasiKontrak() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
 
     @Override
     public void bonusKontrak() {
         double bonus;
         bonus = (durasiKontrak(tanggalAwal, tanggalAkhir)-30)*12000;
-        if(durasiKontrak()>30){
+        if(durasiKontrak(tanggalAwal,tanggalAkhir)>30){
             System.out.println("Anda mendapatkan bonus");
             System.out.println("Bonus : "+ bonus);
         }else{
@@ -59,5 +59,53 @@ public class AccountOfficer extends Karyawan implements IAccountOfficer, IKontra
     public void membuatPembukuan() {
         System.out.println("Tugas Anda adalah membuat pembukuan");
     }
-    
-}
+
+    @Override
+    public int durasiKontrak(String awal, String akhir) {
+         Scanner s = new Scanner(awal);
+        String[] insert1 = new String[3];
+        
+        while(s.hasNext()){
+            int i = 0;
+            insert1[i] = s.next();
+            if(!s.hasNext()){
+                s.close();
+                break;
+            }
+            i++;
+        }
+        
+        Scanner t = new Scanner(akhir);
+        String[] insert2 = new String[3];
+        
+        while(t.hasNext()){
+            int i = 0;
+            insert2[i] = t.next();
+            if(!t.hasNext()){
+                t.close();
+                break;
+            }
+            i++;
+        }
+        
+        Calendar cal = Calendar.getInstance();
+
+        cal.set(Calendar.DAY_OF_MONTH, Integer.parseInt(insert1[0]));
+        cal.set(Calendar.MONTH, Integer.parseInt(insert1[1]));
+        cal.set(Calendar.YEAR, Integer.parseInt(insert1[2]));
+        Date firstDate = cal.getTime();
+
+        cal.set(Calendar.DAY_OF_MONTH, Integer.parseInt(insert2[0]));
+        cal.set(Calendar.MONTH, Integer.parseInt(insert2[1]));
+        cal.set(Calendar.YEAR, Integer.parseInt(insert2[2]));
+        Date secondDate = cal.getTime();
+
+
+        int diff = (int) (secondDate.getTime() - firstDate.getTime());
+
+        return diff / 1000 / 60 / 60 / 24;
+          
+    }
+ }
+        
+
