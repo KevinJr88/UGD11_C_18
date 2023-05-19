@@ -12,7 +12,7 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
 
-public class CustomerService extends Karyawan implements ICustomerService{
+public class CustomerService extends Karyawan implements ICustomerService, IKontrak{
     private String fasilitas;
     private int jmlKeluhan;
     
@@ -32,6 +32,7 @@ public class CustomerService extends Karyawan implements ICustomerService{
         System.out.println("Tugas : "); membukaRekening();
         System.out.println("Durasi Kontrak : " + cekDurasi(tanggalAwal, tanggalAkhir));
         cekBonus();
+        bonusKontrak();
         
     }
     
@@ -94,5 +95,60 @@ public class CustomerService extends Karyawan implements ICustomerService{
         }
     }
 
+    @Override
+    public double durasiKontrak(String awal, String akhir) {
+      
+        Scanner s = new Scanner(awal);
+        String[] insert1 = new String[3];
+        
+        while(s.hasNext()){
+            int i = 0;
+            insert1[i] = s.next();
+            if(!s.hasNext()){
+                s.close();
+                break;
+            }
+            i++;
+        }
+        
+        Scanner t = new Scanner(akhir);
+        String[] insert2 = new String[3];
+        
+        while(t.hasNext()){
+            int i = 0;
+            insert2[i] = t.next();
+            if(!t.hasNext()){
+                t.close();
+                break;
+            }
+            i++;
+        }
+        
+        Calendar cal = Calendar.getInstance();
+
+        cal.set(Calendar.DAY_OF_MONTH, Integer.parseInt(insert1[0]));
+        cal.set(Calendar.MONTH, Integer.parseInt(insert1[1]));
+        cal.set(Calendar.YEAR, Integer.parseInt(insert1[2]));
+        Date firstDate = cal.getTime();
+
+        cal.set(Calendar.DAY_OF_MONTH, Integer.parseInt(insert2[0]));
+        cal.set(Calendar.MONTH, Integer.parseInt(insert2[1]));
+        cal.set(Calendar.YEAR, Integer.parseInt(insert2[2]));
+        Date secondDate = cal.getTime();
+
+
+        long diff = secondDate.getTime() - firstDate.getTime();
+
+        return diff / 1000 / 60 / 60 / 24;
+          
+    }
     
+    @Override
+    public void bonusKontrak() {
+        if(durasiKontrak(tanggalAwal, tanggalAkhir)<30){
+            System.out.println("Bonus : 0.00");
+        } else{
+            System.out.println("Bonus : " + (durasiKontrak(tanggalAwal, tanggalAkhir)-30)*15000.0);
+        }    
+    }
 }

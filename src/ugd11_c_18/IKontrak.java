@@ -9,6 +9,6 @@ package ugd11_c_18;
  * @author julia
  */
 public interface IKontrak {
-    public int durasiKontrak();
+    public double durasiKontrak(String awal, String akhir);
     public void bonusKontrak();
 }
