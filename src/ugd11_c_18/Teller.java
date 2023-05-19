@@ -45,9 +45,12 @@ public class Teller extends Karyawan implements ITeller, IKontrak {
     public void bonusKontrak() {
         double bonus;
         bonus = durasiKontrak()*13000;
-        if(bonus>0){
+        if(durasiKontrak()>30){
             System.out.println("Anda mendapatkan bonus");
             System.out.println("Bonus : "+ bonus);
+        }else{
+            System.out.println("Anda tidak mendapatkan Bonus");
+            System.out.println("Bonus : 0.0");
         }
     }
 }

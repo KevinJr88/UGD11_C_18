@@ -34,15 +34,15 @@ public class AccountOfficer extends Karyawan implements IAccountOfficer, IKontra
     }
 
     @Override
-    public int durasiKontrak() {
+    public double durasiKontrak() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
     public void bonusKontrak() {
         double bonus;
-        bonus = durasiKontrak()*12000;
-        if(durasiKontrak>30){
+        bonus = (durasiKontrak(tanggalAwal, tanggalAkhir)-30)*12000;
+        if(durasiKontrak()>30){
             System.out.println("Anda mendapatkan bonus");
             System.out.println("Bonus : "+ bonus);
         }else{
