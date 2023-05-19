@@ -8,6 +8,9 @@ package ugd11_c_18;
  *
  * @author kevin
  */
-public class CustomerService {
+public class CustomerService extends Karyawan implements ICustomerService{
+    
+    public CustomerService(String nama, String nomorIdentitas, String tanggalAwal)
+        super(nama, nomorIdentitas, tanggalAwal, tanggalAkhir);
     
 }

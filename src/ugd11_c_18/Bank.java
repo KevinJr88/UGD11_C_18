@@ -25,6 +25,11 @@ public class Bank {
         System.out.println("Tampilan Data");
         System.out.println("Nama Bank : "+namaBank);
         System.out.println("Alamat : "+ alamatBank);
+        
+        for(int i = 0 ; i<listKaryawan.size();i++){
+            System.out.println("----Petugas ke-"+(i+1));
+            listKaryawan.get(i).showKaryawan();
+        }
     }
     
     

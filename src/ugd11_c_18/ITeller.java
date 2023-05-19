@@ -9,5 +9,5 @@ package ugd11_c_18;
  * @author kevin
  */
 public interface ITeller {
-    
+    public void Teller();
 }
