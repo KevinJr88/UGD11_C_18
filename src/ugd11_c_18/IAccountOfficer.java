@@ -9,5 +9,6 @@ package ugd11_c_18;
  * @author kevin
  */
 public interface IAccountOfficer {
-    
+    public void mencariNasabah();
+    public void membuatPembukuan();
 }

@@ -6,8 +6,9 @@ package ugd11_c_18;
 
 /**
  *
- * @author kevin
+ * @author julia
  */
-public interface ICustomerService {
-    public void CustomerService();
+public interface IKontrak {
+    public int durasiKontrak();
+    public void bonusKontrak();
 }
